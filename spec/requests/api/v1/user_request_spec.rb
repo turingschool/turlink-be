@@ -36,4 +36,20 @@ RSpec.describe 'User requests', type: :request do
       expect(error[:errors].first[:message]).to eq("Password confirmation doesn't match Password")
     end
   end
+
+  describe 'POST /sessions' do
+    it 'logs in a existing user' do
+      user = User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password')
+
+      post '/api/v1/sessions', params: { email: user.email, password: user.password }
+
+      expect(response).to have_http_status(:ok)
+
+      expect(session[:user_id]).to eq(user.id)
+
+      response_body = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response_body[:data][:attributes][:email]).to eq(user.email)
+    end
+  end
 end
