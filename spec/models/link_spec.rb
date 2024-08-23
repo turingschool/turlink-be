@@ -15,4 +15,18 @@ RSpec.describe Link, type: :model do
   describe 'relationships' do
     it { should belong_to :user }
   end
+
+  describe 'class methods' do
+    describe 'create_new' do
+      it 'can create a new link' do
+        user1 = User.create(email: "user@example.com", password: "user123")
+        link = Link.create_new(user1.id, "long-link-example.com")
+
+        expect(link).to be_a Link
+        expect(link.user_id).to eq(user1.id)
+        expect(link.original).to eq("long-link-example.com")
+        expect(link.short).to be_a String
+      end
+    end
+  end
 end
