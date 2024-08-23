@@ -125,7 +125,7 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       }
     }
     ```
-  - Error Response (422 Unprocessable Entity):
+  - Error Response (422 Unprocessable Entity) -- when original link isn't entered:
     ```json
     {
       "errors": [
@@ -136,7 +136,7 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       ]
     }
     ```
-  - Error Response (404 Not Found):
+  - Error Response (404 Not Found) -- when user_id is not valid:
   ```json
   {
     "errors": [
@@ -182,13 +182,12 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       }
     }
     ```
-  - Error Response (422 Unprocessable Entity):
+  - Error Response (404 Not Found) -- when user_id is not valid:
   ```json
   {
     "errors": [
         {
-            "status": "unprocessable_entity",
-            "message": "User must exist"
+            "message": "Record not found"
         }
     ]
   }
@@ -212,13 +211,12 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       }
     }
     ```
-  - Error Response (404 Not Found):
+  - Error Response (404 Not Found) -- when shortened link is not entered or does not exist:
   ```json
   {
     "errors": [
         {
-            "status": "unprocessable_entity",
-            "message": "User must exist"
+            "message": "Record not found"
         }
     ]
   }
