@@ -40,7 +40,25 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
         "id": "1",
         "type": "user",
         "attributes": {
-          "email": "user@example.com"
+          "email": "user@example.com",
+          "links": [
+                {
+                    "id": 1,
+                    "original": "testlink.com",
+                    "short": "tur.link/4a7c204baeacaf2c",
+                    "user_id": 1,
+                    "created_at": "2024-08-23T15:51:38.866Z",
+                    "updated_at": "2024-08-23T15:51:38.866Z"
+                },
+                {
+                    "id": 2,
+                    "original": "testlink.com",
+                    "short": "tur.link/67c758fc",
+                    "user_id": 1,
+                    "created_at": "2024-08-23T15:53:08.573Z",
+                    "updated_at": "2024-08-23T15:53:08.573Z"
+                },
+          ]
         }
       }
     }
@@ -89,3 +107,119 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       ]
     }
     ```
+### Shorten a Link
+- **POST** `/api/v1/users/:id/links?link={original link}`
+  - Description: Creates a shortened link associated with an exisiting user
+  - Example Request: POST `https://turlink-be-53ba7254a7c1.herokuapp.com/users/1/links?link=testlink.com`
+  - Successful Response (200 OK):
+    ```json
+    {
+      "data": {
+          "id": "1",
+          "type": "link",
+          "attributes": {
+              "original": "testlink.com",
+              "short": "tur.link/4a7c204baeacaf2c",
+              "user_id": 1
+          }
+      }
+    }
+    ```
+  - Error Response (422 Unprocessable Entity):
+    ```json
+    {
+      "errors": [
+          {
+              "status": "unprocessable_entity",
+              "message": "Original can't be blank"
+          }
+      ]
+    }
+    ```
+  - Error Response (404 Not Found):
+  ```json
+  {
+    "errors": [
+        {
+            "status": "unprocessable_entity",
+            "message": "User must exist"
+        }
+    ]
+  }
+  ```
+
+### All Links for a User
+- **GET** `/api/v1/users/:id/links`
+  - Description: Gets an index of all links for a user
+  - Example Request: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/users/1/links`
+  - Successful Response (200 OK):
+    ```json
+    {
+      "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+          "email": "user@example.com",
+          "links": [
+                {
+                    "id": 1,
+                    "original": "testlink.com",
+                    "short": "tur.link/4a7c204baeacaf2c",
+                    "user_id": 1,
+                    "created_at": "2024-08-23T15:51:38.866Z",
+                    "updated_at": "2024-08-23T15:51:38.866Z"
+                },
+                {
+                    "id": 2,
+                    "original": "testlink.com",
+                    "short": "tur.link/67c758fc",
+                    "user_id": 1,
+                    "created_at": "2024-08-23T15:53:08.573Z",
+                    "updated_at": "2024-08-23T15:53:08.573Z"
+                },
+          ]
+        }
+      }
+    }
+    ```
+  - Error Response (422 Unprocessable Entity):
+  ```json
+  {
+    "errors": [
+        {
+            "status": "unprocessable_entity",
+            "message": "User must exist"
+        }
+    ]
+  }
+  ```
+
+### Return full link when short link is given
+- **GET** `/api/v1/links?short={shortened link}`
+  - Description: Gets full link object when given shortened link
+  - Example Request: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/links?short=tur.link/4a7c204baeacaf2c`
+  - Successful Response (200 OK):
+    ```json
+    {
+      "data": {
+          "id": "1",
+          "type": "link",
+          "attributes": {
+              "original": "testlink.com",
+              "short": "tur.link/4a7c204baeacaf2c",
+              "user_id": 1
+          }
+      }
+    }
+    ```
+  - Error Response (404 Not Found):
+  ```json
+  {
+    "errors": [
+        {
+            "status": "unprocessable_entity",
+            "message": "User must exist"
+        }
+    ]
+  }
+  ```

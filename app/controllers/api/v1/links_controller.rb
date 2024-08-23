@@ -18,7 +18,11 @@ class Api::V1::LinksController < ApplicationController
 
   def show
     link = Link.find_by(short: params[:short])
-    render json: LinkSerializer.new(link)
+    if link != nil 
+      render json: LinkSerializer.new(link)
+    else
+      not_found_error
+    end
   end
 
   private

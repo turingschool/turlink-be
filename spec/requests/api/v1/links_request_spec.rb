@@ -113,5 +113,18 @@ RSpec.describe 'links requests', type: :request do
       expect(link2[:attributes][:short]).to eq(short)
       expect(link2[:attributes][:user_id]).to eq(user1.id)
     end
+
+    describe "sad path" do
+      it "will return a 404 if shortened link doesn't exist" do
+        get "/api/v1/links?short=tur.link/12345678"
+
+        expect(response).to_not be_successful
+        expect(response.status).to eq(404)
+
+        error = JSON.parse(response.body, symbolize_names: true)[:errors][0]
+
+        expect(error[:message]).to eq("Record not found")
+      end
+    end
   end
 end
