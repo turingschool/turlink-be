@@ -21,3 +21,71 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
 - to use endpoints in development enivronment, run `rails s` and use `http://localhost:5000` as your base url
 
 ## API Endpoints
+
+### User Registration
+- **POST** `/api/v1/users`
+  - Description: Creates a new user account.
+  - Request Body:
+    ```json
+    {
+      "email": "user@example.com",
+      "password": "password123",
+      "password_confirmation": "password123"
+    }
+    ```
+  - Successful Response (201 Created):
+    ```json
+    {
+      "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+          "email": "user@example.com"
+        }
+      }
+    }
+    ```
+  - Error Response (422 Unprocessable Entity):
+    ```json
+    {
+      "errors": [
+        {
+          "status": "422",
+          "message": "Email has already been taken"
+        }
+      ]
+    }
+    ```
+
+### User Login
+- **POST** `/api/v1/sessions`
+  - Description: Authenticates a user and creates a session.
+  - Request Body:
+    ```json
+    {
+      "email": "user@example.com",
+      "password": "password123"
+    }
+    ```
+  - Successful Response (200 OK):
+    ```json
+    {
+      "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+          "email": "user@example.com"
+        }
+      }
+    }
+    ```
+  - Error Response (401 Unauthorized):
+    ```json
+    {
+      "errors": [
+        {
+          "message": "Invalid email or password"
+        }
+      ]
+    }
+    ```
