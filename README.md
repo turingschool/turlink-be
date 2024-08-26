@@ -15,10 +15,27 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
 
 ## Setup and Testing
 - clone this repo
+
+### traditional setup
 - run `bundle install`
 - run `rails db:{drop,create,migrate,seed}`
 - for the test suite, run `bundle exec rspec`
 - to use endpoints in development enivronment, run `rails s` and use `http://localhost:5000` as your base url
+
+### setup with docker
+- ensure you have docker installed on your local machine
+- run `chmod +x docker_start.sh` to make script executable
+- run `./docker_start.sh`
+    - builds docker images
+    - starts containers
+    - creates database
+    - runs migrations
+    - seeds database
+- application should now be live at `http://localhost:3001`
+- to stop the application run `docker-compose down`
+
+- Rails container: `docker-compose exec web bash`
+- Rails console: `docker-compose run web rails c`
 
 ## API Endpoints
 
