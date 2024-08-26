@@ -41,24 +41,7 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
         "type": "user",
         "attributes": {
           "email": "user@example.com",
-          "links": [
-                {
-                    "id": 1,
-                    "original": "testlink.com",
-                    "short": "tur.link/4a7c204baeacaf2c",
-                    "user_id": 1,
-                    "created_at": "2024-08-23T15:51:38.866Z",
-                    "updated_at": "2024-08-23T15:51:38.866Z"
-                },
-                {
-                    "id": 2,
-                    "original": "testlink.com",
-                    "short": "tur.link/67c758fc",
-                    "user_id": 1,
-                    "created_at": "2024-08-23T15:53:08.573Z",
-                    "updated_at": "2024-08-23T15:53:08.573Z"
-                },
-          ]
+          "links": []
         }
       }
     }
@@ -92,7 +75,25 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
         "id": "1",
         "type": "user",
         "attributes": {
-          "email": "user@example.com"
+          "email": "user@example.com",
+          "links": [
+                {
+                    "id": 1,
+                    "original": "testlink.com",
+                    "short": "tur.link/4a7c204baeacaf2c",
+                    "user_id": 1,
+                    "created_at": "2024-08-23T15:51:38.866Z",
+                    "updated_at": "2024-08-23T15:51:38.866Z"
+                },
+                {
+                    "id": 2,
+                    "original": "testlink.com",
+                    "short": "tur.link/67c758fc",
+                    "user_id": 1,
+                    "created_at": "2024-08-23T15:53:08.573Z",
+                    "updated_at": "2024-08-23T15:53:08.573Z"
+                },
+          ]
         }
       }
     }
