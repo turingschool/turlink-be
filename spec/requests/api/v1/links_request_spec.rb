@@ -152,6 +152,30 @@ RSpec.describe 'links requests', type: :request do
       expect(link2[:attributes][:click_count]).to eq(3)
     end
 
+    it 'maintains separate click counts for different links' do
+      user1 = User.create(email: 'user@example.com', password: 'user123')
+
+      post "/api/v1/users/#{user1.id}/links?link=first-link.com"
+      first_link = JSON.parse(response.body, symbolize_names: true)[:data]
+      first_short = first_link[:attributes][:short]
+
+      post "/api/v1/users/#{user1.id}/links?link=second-link.com"
+      second_link = JSON.parse(response.body, symbolize_names: true)[:data]
+      second_short = second_link[:attributes][:short]
+
+      get "/api/v1/links?short=#{first_short}"
+      get "/api/v1/links?short=#{first_short}"
+      get "/api/v1/links?short=#{second_short}"
+
+      get "/api/v1/links?short=#{first_short}"
+      first_link_response = JSON.parse(response.body, symbolize_names: true)[:data]
+      expect(first_link_response[:attributes][:click_count]).to eq(3)
+
+      get "/api/v1/links?short=#{second_short}"
+      second_link_response = JSON.parse(response.body, symbolize_names: true)[:data]
+      expect(second_link_response[:attributes][:click_count]).to eq(2)
+    end
+
     describe 'sad path' do
       it "will return a 404 if shortened link doesn't exist" do
         get '/api/v1/links?short=tur.link/12345678'
