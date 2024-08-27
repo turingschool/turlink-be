@@ -9,9 +9,7 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
 [AI Microservice](https://github.com/turingschool/turlink-ai-service)
 
 ## Database Schema
-<img width="845" alt="database schema" src="![Untitled from dbdiagram (1)](https://github.com/user-attachments/assets/6edc49ee-9981-441b-931e-b273b73d3785)">
-
-
+![database schema](https://github.com/user-attachments/assets/18cb21fa-49ce-4822-8cde-a1acccfb0aa6)
 
 <br>
 
