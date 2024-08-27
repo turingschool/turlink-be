@@ -1,5 +1,4 @@
 class Api::V1::LinksController < ApplicationController
-
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_error
 
   def create
@@ -18,7 +17,9 @@ class Api::V1::LinksController < ApplicationController
 
   def show
     link = Link.find_by(short: params[:short])
-    if link != nil 
+    if link
+      link.increment!(:clicks)
+      link.update(last_click: Time.current)
       render json: LinkSerializer.new(link)
     else
       not_found_error
@@ -30,5 +31,4 @@ class Api::V1::LinksController < ApplicationController
   def not_found_error
     render json: { errors: [{ message: 'Record not found' }] }, status: :not_found
   end
-
 end
