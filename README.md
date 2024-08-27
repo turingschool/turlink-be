@@ -9,7 +9,8 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
 [AI Microservice](https://github.com/turingschool/turlink-ai-service)
 
 ## Database Schema
-<img width="845" alt="Screenshot 2024-08-26 at 11 09 03 PM" src="https://github.com/user-attachments/assets/f6df9682-0a09-4ef1-aee1-4c321a41c8bc">
+<img width="845" alt="Screenshot 2024-08-26 at 11 09 03 PM" src="![Untitled from dbdiagram (1)](https://github.com/user-attachments/assets/3f477ff5-17c7-4796-8159-721abad41edf)
+">
 
 
 <br>
@@ -242,6 +243,10 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       ]
     }
     ```
+  ### Click Tracking
+  - Each time a shortened link is accessed via the GET `/api/v1/links?short={shortened link}` endpoint:
+    - The `click_count` for that link is automatically incremented.
+    - The `last_click` timestamp is updated to the current time.
 
 ### Get all tags from database
 - **GET** `/api/v1/tags`
@@ -380,7 +385,4 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
     }
     ```
 
-    ### Click Tracking
-    - Each time a shortened link is accessed via the GET `/api/v1/links?short={shortened link}` endpoint:
-      - The `click_count` for that link is automatically incremented.
-      - The `last_click` timestamp is updated to the current time.
+
