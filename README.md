@@ -20,7 +20,7 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
 - run `bundle install`
 - run `rails db:{drop,create,migrate,seed}`
 - for the test suite, run `bundle exec rspec`
-- to use endpoints in development enivronment, run `rails s` and use `http://localhost:5000` as your base url
+- to use endpoints in development enivronment, run `rails s` and use `http://localhost:3000` as your base url
 
 ### setup with docker
 - ensure you have docker installed on your local machine
