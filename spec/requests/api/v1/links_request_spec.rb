@@ -189,4 +189,45 @@ RSpec.describe 'links requests', type: :request do
       end
     end
   end
+
+  describe 'GET /api/v1/top_links' do
+    before do
+      @user = User.create(email: 'user@example.com', password: 'password')
+      @tag1 = Tag.create(name: 'javascript')
+      @tag2 = Tag.create(name: 'ruby')
+
+      @link1 = Link.create(original: 'https://example1.com', short: 'tur.link/abc123', user: @user, click_count: 100)
+      @link2 = Link.create(original: 'https://example2.com', short: 'tur.link/def456', user: @user, click_count: 75)
+      @link3 = Link.create(original: 'https://example3.com', short: 'tur.link/ghi789', user: @user, click_count: 50)
+      @link4 = Link.create(original: 'https://example4.com', short: 'tur.link/jkl012', user: @user, click_count: 25)
+      @link5 = Link.create(original: 'https://example5.com', short: 'tur.link/mno345', user: @user, click_count: 10)
+      @link6 = Link.create(original: 'https://example6.com', short: 'tur.link/pqr678', user: @user, click_count: 5)
+
+      @link_tag1 = LinkTag.create(link: @link1, tag: @tag1)
+      @link_tag2 = LinkTag.create(link: @link2, tag: @tag1)
+      @link_tag3 = LinkTag.create(link: @link3, tag: @tag2)
+    end
+
+    it 'can return the top 5 links by click count' do
+      get '/api/v1/top_links'
+
+      expect(response).to be_successful
+      links = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(links.count).to eq(5)
+      expect(links[0][:attributes][:click_count]).to eq(100)
+      expect(links.last[:attributes][:click_count]).to eq(75)
+    end
+
+    it 'can return the top 5 links by click count for a specific tag' do
+      get '/api/v1/top_links?tag=javascript'
+
+      expect(response).to be_successful
+      links = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(links.count).to eq(2)
+      expect(links[0][:attributes][:click_count]).to eq(100)
+      expect(links.last[:attributes][:click_count]).to eq(50)
+    end
+  end
 end
