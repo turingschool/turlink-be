@@ -155,16 +155,16 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
     }
     ```
   - Error Response (404 Not Found) -- when user_id is not valid:
-  ```json
-  {
-    "errors": [
-        {
-            "status": "unprocessable_entity",
-            "message": "User must exist"
-        }
-    ]
-  }
-  ```
+    ```json
+    {
+      "errors": [
+          {
+              "status": "unprocessable_entity",
+              "message": "User must exist"
+          }
+      ]
+    }
+    ```
 
 ### All Links for a User
 - **GET** `/api/v1/users/:id/links`
@@ -201,15 +201,15 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
     }
     ```
   - Error Response (404 Not Found) -- when user_id is not valid:
-  ```json
-  {
-    "errors": [
-        {
-            "message": "Record not found"
-        }
-    ]
-  }
-  ```
+    ```json
+    {
+      "errors": [
+          {
+              "message": "Record not found"
+          }
+      ]
+    }
+    ```
 
 ### Return full link when short link is given
 - **GET** `/api/v1/links?short={shortened link}`
@@ -230,12 +230,12 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
     }
     ```
   - Error Response (404 Not Found) -- when shortened link is not entered or does not exist:
-  ```json
-  {
-    "errors": [
-        {
-            "message": "Record not found"
-        }
-    ]
-  }
-  ```
+    ```json
+    {
+      "errors": [
+          {
+              "message": "Record not found"
+          }
+      ]
+    }
+    ```
