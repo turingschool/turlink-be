@@ -18,7 +18,7 @@ class Api::V1::LinksController < ApplicationController
   def show
     link = Link.find_by(short: params[:short])
     if link
-      link.increment!(:clicks)
+      link.increment!(:click_count)
       link.update(last_click: Time.current)
       render json: LinkSerializer.new(link)
     else
