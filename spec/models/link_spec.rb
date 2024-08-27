@@ -14,6 +14,8 @@ RSpec.describe Link, type: :model do
 
   describe 'relationships' do
     it { should belong_to :user }
+    it { should have_many :link_tags }
+    it { should have_many(:tags).through(:link_tags) }
   end
 
   describe 'class methods' do

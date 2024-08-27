@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_22_170839) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_27_010135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "link_tags", force: :cascade do |t|
+    t.bigint "tag_id", null: false
+    t.bigint "link_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["link_id"], name: "index_link_tags_on_link_id"
+    t.index ["tag_id"], name: "index_link_tags_on_tag_id"
+  end
 
   create_table "links", force: :cascade do |t|
     t.string "original"
@@ -23,6 +32,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_22_170839) do
     t.index ["user_id"], name: "index_links_on_user_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -30,5 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_22_170839) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "link_tags", "links"
+  add_foreign_key "link_tags", "tags"
   add_foreign_key "links", "users"
 end
