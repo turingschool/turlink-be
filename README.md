@@ -225,7 +225,9 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
           "attributes": {
               "original": "testlink.com",
               "short": "tur.link/4a7c204baeacaf2c",
-              "user_id": 1
+              "user_id": 1,
+              "click_count": 1,
+              "last_click": "2024-08-28T12:34:56.789Z"
           }
       }
     }
@@ -271,7 +273,7 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
             }
         }, ...
       ]
-    }    
+    }
     ```
 
 ### Add a tag to a link
@@ -377,3 +379,8 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       ]
     }
     ```
+
+    ### Click Tracking
+    - Each time a shortened link is accessed via the GET `/api/v1/links?short={shortened link}` endpoint:
+      - The `click_count` for that link is automatically incremented.
+      - The `last_click` timestamp is updated to the current time.
