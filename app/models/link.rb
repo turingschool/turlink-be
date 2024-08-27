@@ -6,6 +6,8 @@ class Link < ApplicationRecord
   validates :short, uniqueness: true, presence: true
 
   belongs_to :user
+  has_many :link_tags
+  has_many :tags, through: :link_tags
 
   def self.create_new(user_id, original)
     short = Link.create_short_link
