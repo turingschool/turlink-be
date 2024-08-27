@@ -203,9 +203,9 @@ RSpec.describe 'links requests', type: :request do
       @link5 = Link.create(original: 'https://example5.com', short: 'tur.link/mno345', user: @user, click_count: 10)
       @link6 = Link.create(original: 'https://example6.com', short: 'tur.link/pqr678', user: @user, click_count: 5)
 
-      @link_tag1 = LinkTag.create(link: @link1, tag: @tag1)
-      @link_tag2 = LinkTag.create(link: @link2, tag: @tag1)
-      @link_tag3 = LinkTag.create(link: @link3, tag: @tag2)
+      @link1.tags << @tag1
+      @link2.tags << @tag2
+      @link3.tags << @tag1
     end
 
     it 'can return the top 5 links by click count' do
@@ -216,7 +216,7 @@ RSpec.describe 'links requests', type: :request do
 
       expect(links.count).to eq(5)
       expect(links[0][:attributes][:click_count]).to eq(100)
-      expect(links.last[:attributes][:click_count]).to eq(75)
+      expect(links.last[:attributes][:click_count]).to eq(10)
     end
 
     it 'can return the top 5 links by click count for a specific tag' do

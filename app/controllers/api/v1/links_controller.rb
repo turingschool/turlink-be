@@ -26,6 +26,16 @@ class Api::V1::LinksController < ApplicationController
     end
   end
 
+  def top_links
+    query = Link.order(click_count: :desc).limit(5)
+
+    query = query.joins(:tags).where(tags: { name: params[:tag] }) if params[:tag].present?
+
+    links = query.distinct
+
+    render json: LinkSerializer.new(links)
+  end
+
   private
 
   def not_found_error
