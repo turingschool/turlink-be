@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
       resources :sessions, only: %i[create]
       resources :links, only: %i[index], action: :show
+      resources :tags, only: %i[index create destroy]
     end
   end
 end
