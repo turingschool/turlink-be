@@ -383,7 +383,7 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       ]
     }
     ```
-    ### Get Top 5 Links
+### Get Top 5 Links
     - **GET** `/api/v1/top_links`
       - Description: Returns the top 5 links based on click count.
       - Optional Query Parameter: `tag` to filter by a specific tag.
