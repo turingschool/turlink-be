@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :sessions, only: %i[create]
       resources :links, only: %i[index], action: :show
       resources :tags, only: %i[index create destroy]
+      get 'top_links', to: 'links#top_links'
     end
   end
 end

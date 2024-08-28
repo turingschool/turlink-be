@@ -383,5 +383,51 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       ]
     }
     ```
-
-
+    ### Get Top 5 Links
+    - **GET** `/api/v1/top_links`
+      - Description: Returns the top 5 links based on click count.
+      - Optional Query Parameter: `tag` to filter by a specific tag.
+      - Example Request: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/top_links`
+      - Example Request with Tag Filter: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/top_links?tag=javascript`
+      - Successful Response (200 OK):
+        ```json
+        {
+          "data": [
+            {
+              "id": "1",
+              "type": "link",
+              "attributes": {
+                "original": "https://example1.com",
+                "short": "tur.link/abc123",
+                "user_id": 1,
+                "click_count": 100,
+                "last_click": "2024-08-28T12:34:56.789Z",
+                "tags": [
+                  {
+                    "id": 1,
+                    "name": "javascript"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "type": "link",
+              "attributes": {
+                "original": "https://example2.com",
+                "short": "tur.link/def456",
+                "user_id": 2,
+                "click_count": 75,
+                "last_click": "2024-08-27T10:11:12.345Z",
+                "tags": [
+                  {
+                    "id": 2,
+                    "name": "ruby"
+                  }
+                ]
+              }
+            },
+            // ... (3 more link objects)
+          ]
+        }
+        ```
