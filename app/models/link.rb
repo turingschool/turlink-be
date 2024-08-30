@@ -1,6 +1,8 @@
 require 'securerandom'
 
 class Link < ApplicationRecord
+  default_scope { where(disabled: false) }
+  
   validates_presence_of :user_id
   validates_presence_of :original
   validates :short, uniqueness: true, presence: true
