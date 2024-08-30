@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :links, only: %i[index], action: :show
       resources :tags, only: %i[index create destroy]
       get 'top_links', to: 'links#top_links'
+      get 'summary', to: 'summaries#show'
     end
   end
 

@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://nameless-garden-14218-de5663d17d61.herokuapp.com/api/v1/ping/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.10.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Report-To:
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1725059297&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=2%2BQmnx%2BQpWUcAkDqcckbXp%2F%2FfqkIPA2tghla8SSEZzo%3D"}]}'
+      Reporting-Endpoints:
+      - heroku-nel=https://nel.heroku.com/reports?ts=1725059297&sid=929419e7-33ea-4e2f-85f0-7d8b7cd5cbd6&s=2%2BQmnx%2BQpWUcAkDqcckbXp%2F%2FfqkIPA2tghla8SSEZzo%3D
+      Nel:
+      - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn
+      Date:
+      - Fri, 30 Aug 2024 23:08:17 GMT
+      Content-Type:
+      - application/json
+      X-Frame-Options:
+      - DENY
+      Content-Length:
+      - '92'
+      X-Content-Type-Options:
+      - nosniff
+      Referrer-Policy:
+      - same-origin
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data": {"link": "www.example.com", "summary": "1. example 1\n2. example
+        2\n3. example 3"}}'
+  recorded_at: Fri, 30 Aug 2024 23:08:17 GMT
+recorded_with: VCR 6.3.1
