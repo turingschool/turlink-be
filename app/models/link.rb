@@ -6,6 +6,8 @@ class Link < ApplicationRecord
   validates_presence_of :user_id
   validates_presence_of :original
   validates :short, uniqueness: true, presence: true
+  validates :private, inclusion: { in: [true, false] }
+
 
   belongs_to :user
   has_many :link_tags
@@ -18,5 +20,9 @@ class Link < ApplicationRecord
 
   def self.create_short_link
     "tur.link/#{SecureRandom.hex(4)}"
+  end
+
+  def update_privacy(is_private)
+    update(private: is_private)
   end
 end

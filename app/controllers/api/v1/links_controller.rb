@@ -17,7 +17,7 @@ class Api::V1::LinksController < ApplicationController
 
   def show
     link = Link.find_by(short: params[:short])
-    if link
+    if link && (!link.private? || (current_user && link.user_id == current_user.id))
       link.increment!(:click_count)
       link.update(last_click: Time.current)
       render json: LinkSerializer.new(link)
@@ -27,13 +27,31 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def top_links
-    query = Link.order(click_count: :desc).limit(5)
+    query = Link.where(private: false).order(click_count: :desc).limit(5)
 
     query = query.joins(:tags).where(tags: { name: params[:tag] }) if params[:tag].present?
 
     links = query.distinct
 
     render json: LinkSerializer.new(links)
+  end
+
+  def update_privacy
+    user = User.find(params[:user_id])
+    link = Link.find(params[:id])
+    is_private = params[:private] == 'true'
+
+    if link.user_id == user.id
+      if link.update(private: is_private)
+        render json: { message: 'Privacy setting updated successfully' }, status: :ok
+      else
+        render json: { error: 'Failed to update privacy setting' }, status: :unprocessable_entity
+      end
+    else
+      render json: { error: 'Unauthorized to update this link' }, status: :forbidden
+    end
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'User or Link not found' }, status: :not_found
   end
 
   private
