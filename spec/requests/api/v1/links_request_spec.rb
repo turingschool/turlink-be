@@ -230,4 +230,41 @@ RSpec.describe 'links requests', type: :request do
       expect(links.last[:attributes][:click_count]).to eq(50)
     end
   end
+
+  describe 'PATCH /users/:user_id/links/:id/update_privacy' do
+    let(:user) { User.create(email: 'user@example.com', password: 'password') }
+    let(:link) { Link.create(original: 'https://example.com', short: 'tur.link/abc123', user:) }
+
+    it 'updates the privacy setting of a link' do
+      patch "/api/v1/users/#{user.id}/links/#{link.id}/update_privacy", params: { private: 'true' }
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      json_response = JSON.parse(response.body, symbolize_names: true)
+      expect(json_response[:message]).to eq('Privacy setting updated successfully')
+
+      link.reload
+      expect(link.private).to be true
+    end
+
+    it 'returns an error if the user does not own the link' do
+      other_user = User.create(email: 'other@example.com', password: 'password')
+      patch "/api/v1/users/#{other_user.id}/links/#{link.id}/update_privacy", params: { private: 'true' }
+
+      expect(response).to have_http_status(:forbidden)
+
+      json_response = JSON.parse(response.body, symbolize_names: true)
+      expect(json_response[:error]).to eq('Unauthorized to update this link')
+    end
+
+    it 'returns an error if the link does not exist' do
+      patch "/api/v1/users/#{user.id}/links/9999/update_privacy", params: { private: 'true' }
+
+      expect(response).to have_http_status(:not_found)
+
+      json_response = JSON.parse(response.body, symbolize_names: true)
+      expect(json_response[:error]).to eq('User or Link not found')
+    end
+  end
 end
