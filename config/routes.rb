@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: %i[create] do
-        resources :links, only: %i[create index]
+        resources :links, only: %i[create index] do
+          member do
+            patch :update_privacy
+          end
+        end
       end
       resources :sessions, only: %i[create]
       resources :links, only: %i[index], action: :show
