@@ -266,5 +266,16 @@ RSpec.describe 'links requests', type: :request do
       json_response = JSON.parse(response.body, symbolize_names: true)
       expect(json_response[:error]).to eq('User or Link not found')
     end
+
+    it 'returns an error if the update fails' do
+      allow_any_instance_of(Link).to receive(:update).and_return(false)
+
+      patch "/api/v1/users/#{user.id}/links/#{link.id}/update_privacy", params: { private: 'true' }
+
+      expect(response).to have_http_status(:unprocessable_entity)
+
+      json_response = JSON.parse(response.body, symbolize_names: true)
+      expect(json_response[:error]).to eq('Failed to update privacy setting')
+    end
   end
 end
