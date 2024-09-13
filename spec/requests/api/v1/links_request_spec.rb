@@ -204,8 +204,12 @@ RSpec.describe 'links requests', type: :request do
       @link6 = Link.create(original: 'https://example6.com', short: 'tur.link/pqr678', user: @user, click_count: 5)
 
       @link1.tags << @tag1
+      @link1.tags << @tag2
+
       @link2.tags << @tag2
+
       @link3.tags << @tag1
+      @link3.tags << @tag2
     end
 
     it 'can return the top 5 links by click count' do
@@ -227,6 +231,17 @@ RSpec.describe 'links requests', type: :request do
 
       expect(links.count).to eq(2)
       expect(links[0][:attributes][:click_count]).to eq(100)
+      expect(links.last[:attributes][:click_count]).to eq(50)
+    end
+
+    it 'can return the top 5 links filtered by multiple tags' do
+      get '/api/v1/top_links?tag=ruby,javascript'
+
+      expect(response).to be_successful
+      links = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(links.count).to eq(2)
+      expect(links[0][:attributes][:click_count]).to eq)
       expect(links.last[:attributes][:click_count]).to eq(50)
     end
   end
