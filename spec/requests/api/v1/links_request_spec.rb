@@ -241,7 +241,7 @@ RSpec.describe 'links requests', type: :request do
       links = JSON.parse(response.body, symbolize_names: true)[:data]
 
       expect(links.count).to eq(2)
-      expect(links[0][:attributes][:click_count]).to eq)
+      expect(links[0][:attributes][:click_count]).to eq(100)
       expect(links.last[:attributes][:click_count]).to eq(50)
     end
   end

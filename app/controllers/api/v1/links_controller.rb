@@ -29,7 +29,11 @@ class Api::V1::LinksController < ApplicationController
   def top_links
     query = Link.where(private: false).order(click_count: :desc).limit(5)
 
-    query = query.joins(:tags).where(tags: { name: params[:tag] }) if params[:tag].present?
+    if params[:tag].present?
+      tags = params[:tag].split(',').map(&:strip)
+      query = query.joins(:tags).where(tags: { name: tags })
+      query = query.group('links.id').having('COUNT(DISTINCT tags.id) = ?', tags.size)
+    end
 
     links = query.distinct
 
