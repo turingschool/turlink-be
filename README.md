@@ -390,6 +390,7 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
   - Optional Query Parameter: `tag` to filter by a specific tag.
   - Example Request: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/top_links`
   - Example Request with Tag Filter: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/top_links?tag=javascript`
+  - Example Request with Multiple Tag Filter: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/top_links?tag=javascript,ruby`
   - Successful Response (200 OK):
     ```json
     {
