@@ -74,6 +74,34 @@ RSpec.describe 'tags requests', type: :request do
       expect(first_tag[:name]).to eq("javascript")
     end
 
+    it 'can create a new tag and add it to a link' do
+      user1 = User.create(email: "user@example.com", password: "user123")
+      post "/api/v1/users/#{user1.id}/links?link=long-link-example.com"
+
+      post "/api/v1/tags?link=#{Link.last.id}&newTag=new tech topic"
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      link = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(link).to be_a Hash
+      expect(link).to have_key :id
+      expect(link[:type]).to eq("link")
+
+      attrs = link[:attributes]
+      expect(attrs[:original]).to eq("long-link-example.com")
+      expect(attrs[:short]).to be_a String
+      expect(attrs[:user_id]).to eq(user1.id)
+
+      tags = attrs[:tags]
+      expect(tags).to be_a Array
+      first_tag = tags[0]
+      expect(first_tag).to be_a Hash
+      expect(first_tag).to have_key :id
+      expect(first_tag[:name]).to eq("new tech topic")
+    end
+
     describe "sad path" do
       it "returns 404 when link or tag isn't passed or doesn't exist" do
         user1 = User.create(email: "user@example.com", password: "user123")

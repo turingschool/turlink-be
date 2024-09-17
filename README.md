@@ -282,9 +282,9 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
     ```
 
 ### Add a tag to a link
-- **POST** `/api/v1/tags?link={link_id}&tag={tag_id}`
-  - Description: Adds a tag to a link
-  - Example Request: POST `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/tags?link=1&tag=1`
+- **POST** `/api/v1/tags?link={link_id}&tag={tag_id}` OR `/api/v1/tags?link={link_id}&newTag={user created tag}`
+  - Description: Adds a tag to a link, or creates a new tag and adds it to a link
+  - Example Request for adding an existing tag: POST `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/tags?link=1&tag=1`
   - Successful Response (200 OK):
     ```json
     {
@@ -307,6 +307,29 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
       }
     }
     ```
+  - Example Request for creating and adding a new tag: POST `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/tags?link=1&newTag=miscellaneous`
+  - Successful Response (200 OK):
+    ```json
+    {
+      "data": {
+          "id": "1",
+          "type": "link",
+          "attributes": {
+              "original": "testlink.com",
+              "short": "tur.link/4a7c204baeacaf2c",
+              "user_id": 1,
+              "tags": [
+                  {
+                      "id": 173,
+                      "name": "miscellaneous",
+                      "created_at": "2024-08-27T01:19:47.421Z",
+                      "updated_at": "2024-08-27T01:19:47.421Z"
+                  }
+              ]
+          }
+      }
+    }
+    ```  
   - Error Response (404 Not Found) -- when tag or link doesn't exist or isn't passed as a param:
     ```json
     {
