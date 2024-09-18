@@ -476,46 +476,46 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
     - In the future, it will provide an actual summary of the content at the given link.
     - The summary is expected to be a string with numbered points, separated by newline characters.
 
-    ### Update Link Privacy
-    - **PATCH** `/api/v1/users/:user_id/links/:id/update_privacy`
-      - Description: Updates the privacy setting of a specific link for a user.
-      - Request Parameters:
-        - `user_id`: The ID of the user who owns the link
-        - `id`: The ID of the link to update
-      - Request Body:
-        ```json
-        {
-          "private": "true"  // or "false" to make the link public
-        }
-        ```
-      - Example Request: PATCH `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/users/1/links/1/update_privacy`
-      - Successful Response (200 OK):
-        ```json
-        {
-          "message": "Privacy setting updated successfully"
-        }
-        ```
-      - Error Responses:
-        - 403 Forbidden (If the user doesn't own the link):
-          ```json
-          {
-            "error": "Unauthorized to update this link"
-          }
-          ```
-        - 404 Not Found (If the user or link doesn't exist):
-          ```json
-          {
-            "error": "User or Link not found"
-          }
-          ```
-        - 422 Unprocessable Entity (If the update fails):
-          ```json
-          {
-            "error": "Failed to update privacy setting"
-          }
-          ```
+### Update Link Privacy
+- **PATCH** `/api/v1/users/:user_id/links/:id/update_privacy`
+  - Description: Updates the privacy setting of a specific link for a user.
+  - Request Parameters:
+    - `user_id`: The ID of the user who owns the link
+    - `id`: The ID of the link to update
+  - Request Body:
+    ```json
+    {
+      "private": "true"  // or "false" to make the link public
+    }
+    ```
+  - Example Request: PATCH `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/users/1/links/1/update_privacy`
+  - Successful Response (200 OK):
+    ```json
+    {
+      "message": "Privacy setting updated successfully"
+    }
+    ```
+  - Error Responses:
+    - 403 Forbidden (If the user doesn't own the link):
+      ```json
+      {
+        "error": "Unauthorized to update this link"
+      }
+      ```
+    - 404 Not Found (If the user or link doesn't exist):
+      ```json
+      {
+        "error": "User or Link not found"
+      }
+      ```
+    - 422 Unprocessable Entity (If the update fails):
+      ```json
+      {
+        "error": "Failed to update privacy setting"
+      }
+      ```
 
-    - Notes:
-      - Private links are only accessible by their owners.
-      - Private links are excluded from the top links listing.
-      - Attempting to access a private link without proper authorization will result in a 404 Not Found error.
+- Notes:
+  - Private links are only accessible by their owners.
+  - Private links are excluded from the top links listing.
+  - Attempting to access a private link without proper authorization will result in a 404 Not Found error.
