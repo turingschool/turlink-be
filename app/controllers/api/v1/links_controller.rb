@@ -45,8 +45,11 @@ class Api::V1::LinksController < ApplicationController
           link.update(summary_timestamp: Time.current)
         end
       rescue Faraday::ConnectionFailed => e
-          link.update(summary: "Summary not available")
-          link.update(summary_timestamp: Time.current)
+        link.update(summary: "Summary not available")
+        link.update(summary_timestamp: Time.current)
+      rescue NoMethodError => e
+        link.update(summary: "Summary not available")
+        link.update(summary_timestamp: Time.current)
       end
     end
 
