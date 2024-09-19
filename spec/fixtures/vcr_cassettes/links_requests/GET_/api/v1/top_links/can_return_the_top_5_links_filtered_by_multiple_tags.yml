@@ -1,0 +1,435 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://example1.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.10.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 19 Sep 2024 17:36:59 GMT
+      Server:
+      - Apache
+      Upgrade:
+      - h2,h2c
+      Connection:
+      - Upgrade
+      Last-Modified:
+      - Tue, 15 Sep 2020 14:51:09 GMT
+      Accept-Ranges:
+      - bytes
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '5203'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<html>\n<head><title>Example 1</title></head>\n<body>\n\n<h1>Example</h1>\n<pre>\nFrom
+        The Collaborative International Dictionary of English v.0.48 : \n\n  Example
+        \\Ex*am\"ple\\, n. [A later form for ensample, fr. L.\n     exemplum, orig.,
+        what is taken out of a larger quantity, as a\n     sample, from eximere to
+        take out. See Exempt, and cf.\n     Ensample, Sample.]\n     1. One or a portion
+        taken to show the character or quality of\n        the whole; a sample; a
+        specimen.\n        [1913 Webster]\n  \n     2. That which is to be followed
+        or imitated as a model; a\n        pattern or copy.\n        [1913 Webster]\n
+        \ \n              For I have given you an example, that ye should do\n              as
+        I have done to you.                --John xiii.\n                                                    15.\n
+        \       [1913 Webster]\n  \n              I gave, thou sayest, the example;
+        I led the way.\n                                                    --Milton.\n
+        \       [1913 Webster]\n  \n     3. That which resembles or corresponds with
+        something else; a\n        precedent; a model.\n        [1913 Webster]\n  \n
+        \             Such temperate order in so fierce a cause\n              Doth
+        want example.                    --Shak.\n        [1913 Webster]\n  \n     4.
+        That which is to be avoided; one selected for punishment\n        and to serve
+        as a warning; a warning.\n        [1913 Webster]\n  \n              Hang him;
+        he'll be made an example.   --Shak.\n        [1913 Webster]\n  \n              Now
+        these things were our examples, to the intent\n              that we should
+        not lust after evil things, as they\n              also lusted.                          --1
+        Cor. x. 6.\n        [1913 Webster]\n  \n     5. An instance serving for illustration
+        of a rule or precept,\n        especially a problem to be solved, or a case
+        to be\n        determined, as an exercise in the application of the rules\n
+        \       of any study or branch of science; as, in trigonometry and\n        grammar,
+        the principles and rules are illustrated by\n        examples.\n  \n     Syn:
+        Precedent; case; instance.\n  \n     Usage: Example, Instance. The discrimination
+        to be made\n            between these two words relates to cases in which
+        we\n            give \"instances\" or \"examples\" of things done. An\n            instance
+        denotes the single case then \"standing\"\n            before us; if there
+        be others like it, the word does\n            not express this fact. On the
+        contrary, an example is\n            one of an entire class of like things,
+        and should be a\n            true representative or sample of that class.
+        Hence, an\n            example proves a rule or regular course of things;
+        an\n            instance simply points out what may be true only in\n            the
+        case presented. A man's life may be filled up with\n            examples of
+        the self-command and kindness which marked\n            his character, and
+        may present only a solitary\n            instance of haste or severity. Hence,
+        the word\n            \"example\" should never be used to describe what stands\n
+        \           singly and alone. We do, however, sometimes apply the\n            word
+        instance to what is really an example, because we\n            are not thinking
+        of the latter under this aspect, but\n            solely as a case which \"stands
+        before us.\" See\n            Precedent.\n            [1913 Webster]\n\n\nFrom
+        The Collaborative International Dictionary of English v.0.48 : \n\n  Example
+        \\Ex*am\"ple\\, v. t. [imp. & p. p. Exampled; p. pr. &\n     vb. n. Exampling.]\n
+        \    To set an example for; to give a precedent for; to exemplify;\n     to
+        give an instance of; to instance. [Obs.] \"I may example my\n     digression
+        by some mighty precedent.\" --Shak.\n     [1913 Webster]\n  \n          Burke
+        devoted himself to this duty with a fervid\n           assiduity that has
+        not often been exampled, and has\n           never been surpassed.                    --J.
+        Morley.\n     [1913 Webster]\n\n\n\nFrom WordNet (r) 2.0 : \n\n  example\n
+        \      n 1: an item of information that is representative of a type;\n            \"this
+        patient provides a typical example of the\n            syndrome\"; \"there
+        is an example on page 10\" [syn: illustration,\n             instance, representative]\n
+        \      2: a representative form or pattern; \"I profited from his\n          example\"
+        [syn: model]\n       3: something to be imitated; \"an exemplar of success\";
+        \"a model\n          of clarity\"; \"he is the very model of a modern major\n
+        \         general\" [syn: exemplar, model, good example]\n       4: punishment
+        intended as a warning to others; \"they decided to\n          make an example
+        of him\" [syn: deterrent example, lesson,\n           object lesson]\n       5:
+        an occurrence of something; \"it was a case of bad judgment\";\n          \"another
+        instance occurred yesterday\"; \"but there is\n          always the famous
+        example of the Smiths\" [syn: case, instance]\n       6: a task performed
+        or problem solved in order to develop skill\n          or understanding; \"you
+        must work the examples at the end\n          of each chapter in the textbook\"
+        [syn: exercise]\n\t\n\tSample Usage: Examples of actresses I like: Julia Roberts,\n\tSandra
+        Bullock\n\n</pre>\n<br>\n<a href=\"http://www.example1.com\">Example1</a>
+        HOSTGATOR\n</body>\n</html>\n"
+  recorded_at: Thu, 19 Sep 2024 17:36:59 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4o-mini","messages":[{"role":"system","content":"You
+        are a helpful assistant."},{"role":"user","content":"Summarize the following
+        content: \u003chtml\u003e\n\u003chead\u003e\u003ctitle\u003eExample 1\u003c/title\u003e\u003c/head\u003e\n\u003cbody\u003e\n\n\u003ch1\u003eExample\u003c/h1\u003e\n\u003cpre\u003e\nFrom
+        The Collaborative International Dictionary of English v.0.48 : \n\n  Example
+        \\Ex*am\"ple\\, n. [A later form for ensample, fr. L.\n     exemplum, orig.,
+        what is taken out of a larger quantity, as a\n     sample, from eximere to
+        take out. See Exempt, and cf.\n     Ensample, Sample.]\n     1. One or a portion
+        taken to show the character or quality of\n        the whole; a sample; a
+        specimen.\n        [1913 Webster]\n  \n     2. That which is to be followed
+        or imitated as a model; a\n        pattern or copy.\n        [1913 Webster]\n  \n              For
+        I have given you an example, that ye should do\n              as I have done
+        to you.                --John xiii.\n                                                    15.\n        [1913
+        Webster]\n  \n              I gave, thou sayest, the example; I led the way.\n                                                    --Milton.\n        [1913
+        Webster]\n  \n     3. That which resembles or corresponds with something else;
+        a\n        precedent; a model.\n        [1913 Webster]\n  \n              Such
+        temperate order in so fierce a cause\n              Doth want example.                    --Shak.\n        [1913
+        Webster]\n  \n     4. That which is to be avoided; one selected for punishment\n        and
+        to serve as a warning; a warning.\n        [1913 Webster]\n  \n              Hang
+        him; he''ll be made an example.   --Shak.\n        [1913 Webster]\n  \n              Now
+        these things were our examples, to the intent\n              that we should
+        not lust after evil things, as they\n              also lusted.                          --1
+        Cor. x. 6.\n        [1913 Webster]\n  \n     5. An instance serving for illustration
+        of a rule or precept,\n        especially a problem to be solved, or a case
+        to be\n        determined, as an exercise in the application of the rules\n        of
+        any study or branch of science; as, in trigonometry and\n        grammar,
+        the principles and rules are illustrated by\n        examples.\n  \n     Syn:
+        Precedent; case; instance.\n  \n     Usage: Example, Instance. The discrimination
+        to be made\n            between these two words relates to cases in which
+        we\n            give \"instances\" or \"examples\" of things done. An\n            instance
+        denotes the single case then \"standing\"\n            before us; if there
+        be others like it, the word does\n            not express this fact. On the
+        contrary, an example is\n            one of an entire class of like things,
+        and should be a\n            true representative or sample of that class.
+        Hence, an\n            example proves a rule or regular course of things;
+        an\n            instance simply points out what may be true only in\n            the
+        case presented. A man''s life may be filled up with\n            examples
+        of the self-command and kindness which marked\n            his character,
+        and may present only a solitary\n            instance of haste or severity.
+        Hence, the word\n            \"example\" should never be used to describe
+        what stands\n            singly and alone. We do, however, sometimes apply
+        the\n            word instance to what is really an example, because we\n            are
+        not thinking of the latter under this aspect, but\n            solely as a
+        case which \"stands before us.\" See\n            Precedent.\n            [1913
+        Webster]\n\n\nFrom The Collaborative International Dictionary of English v.0.48
+        : \n\n  Example \\Ex*am\"ple\\, v. t. [imp. \u0026 p. p. Exampled; p. pr.
+        \u0026\n     vb. n. Exampling.]\n     To set an example for; to give a precedent
+        for; to exemplify;\n     to give an instance of; to instance. [Obs.] \"I may
+        example my\n     digression by some mighty precedent.\" --Shak.\n     [1913
+        Webster]\n  \n          Burke devoted himself to this duty with a fervid\n           assiduity
+        that has not often been exampled, and has\n           never been surpassed.                    --J.
+        Morley.\n     [1913 Webster]\n\n\n\nFrom WordNet (r) 2.0 : \n\n  example\n       n
+        1: an item of information that is representative of a type;\n            \"this
+        patient provides a typical example of the\n            syndrome\"; \"there
+        is an example on page 10\" [syn: illustration,\n             instance, representative]\n       2:
+        a representative form or pattern; \"I profited from his\n          example\"
+        [syn: model]\n       3: something to be imitated; \"an exemplar of success\";
+        \"a model\n          of clarity\"; \"he is the very model of a modern major\n          general\"
+        [syn: exemplar, model, good example]\n       4: punishment intended as a warning
+        to others; \"they decided to\n          make an example of him\" [syn: deterrent
+        example, lesson,\n           object lesson]\n       5: an occurrence of something;
+        \"it was a case of bad judgment\";\n          \"another instance occurred
+        yesterday\"; \"but there is\n          always the famous example of the Smiths\"
+        [syn: case, instance]\n       6: a task performed or problem solved in order
+        to develop skill\n          or understanding; \"you must work the examples
+        at the end\n          of each chapter in the textbook\" [syn: exercise]\n\t\n\tSample
+        Usage: Examples of actresses I like: Julia Roberts,\n\tSandra Bullock\n\n\u003c/pre\u003e\n\u003cbr\u003e\n\u003ca
+        href=\"http://www.example1.com\"\u003eExample1\u003c/a\u003e HOSTGATOR\n\u003c/body\u003e\n\u003c/html\u003e\n."},{"role":"user","content":"Use
+        3 numbered bullet points."}]}'
+    headers:
+      Authorization:
+      - Bearer API_KEY
+      User-Agent:
+      - Faraday v2.10.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 19 Sep 2024 17:37:00 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Request-ID
+      Openai-Organization:
+      - turing-school-hmcjza
+      Openai-Processing-Ms:
+      - '1564'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '200000'
+      X-Ratelimit-Remaining-Requests:
+      - '9997'
+      X-Ratelimit-Remaining-Tokens:
+      - '198657'
+      X-Ratelimit-Reset-Requests:
+      - 21.77s
+      X-Ratelimit-Reset-Tokens:
+      - 402ms
+      X-Request-Id:
+      - req_71c9634d3648b63003cdeba121e5d1b1
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=KnIrn7bI.QzAvBZz3gLZR7AyQyTy2ZEskJVaqOHBdqM-1726767420-1.0.1.1-NNpndDM14ss3PpZbnZZylAhpKj6rLBKjEhuHjVTQzwlRADlx3QIrwPnSV.eQHdX7yREeTv8_1uvEwLhhYXSs1Q;
+        path=/; expires=Thu, 19-Sep-24 18:07:00 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=hOXS2U781vQ7MDKgflLy1BvUTdrRsShVmRnWs6RjtXo-1726767420987-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8c5b57529bb94ce7-BOS
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-A9FNLFoiDY4KgNA5GRlIvnqGifTaC",
+          "object": "chat.completion",
+          "created": 1726767419,
+          "model": "gpt-4o-mini-2024-07-18",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "1. **Definitions of \"Example\"**: The term \"example\" refers to a representation or a portion taken to illustrate the character or quality of a whole, a model to be followed, or a precedent. It can also denote something to be avoided, such as a punishment serving as a warning.\n\n2. **Distinction Between Example and Instance**: An \"example\" represents a class or group, proving rules or regular occurrences, while an \"instance\" indicates a singular case. The former serves as a true representative of its category, whereas the latter may not reflect similar cases.\n\n3. **Usage of \"Example\" as a Verb**: As a verb, \"to example\" means to set an example or provide a precedent. It is described with the context of illustrating or exemplifying a point, though this usage is considered somewhat outdated.",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 1245,
+            "completion_tokens": 171,
+            "total_tokens": 1416,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "system_fingerprint": "fp_1bb46167f9"
+        }
+  recorded_at: Thu, 19 Sep 2024 17:37:01 GMT
+- request:
+    method: get
+    uri: https://example3.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.10.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Thu, 19 Sep 2024 17:37:01 GMT
+      Content-Type:
+      - text/html; charset=iso-8859-1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - http://www.example3.com/
+      X-Powered-By:
+      - PleskLin
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=Ant3LhNhYObbL%2FHhQc85F8RPSKX7dm5He%2B6MW3kQGA2J%2BDUD43OtFH5VAJQ4JkDtHX555jSqAEg3eGIOJo46g32YDFEP4wNHlXcDvDT7YeaFgXBkdVpYl8XfwcPyCg%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8c5b575e4e469017-BOS
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>301 Moved Permanently</title>
+        </head><body>
+        <h1>Moved Permanently</h1>
+        <p>The document has moved <a href="http://www.example3.com/">here</a>.</p>
+        </body></html>
+  recorded_at: Thu, 19 Sep 2024 17:37:01 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4o-mini","messages":[{"role":"system","content":"You
+        are a helpful assistant."},{"role":"user","content":"Summarize the following
+        content: \u003c!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\"\u003e\n\u003chtml\u003e\u003chead\u003e\n\u003ctitle\u003e301
+        Moved Permanently\u003c/title\u003e\n\u003c/head\u003e\u003cbody\u003e\n\u003ch1\u003eMoved
+        Permanently\u003c/h1\u003e\n\u003cp\u003eThe document has moved \u003ca href=\"http://www.example3.com/\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n."},{"role":"user","content":"Use
+        3 numbered bullet points."}]}'
+    headers:
+      Authorization:
+      - Bearer API_KEY
+      User-Agent:
+      - Faraday v2.10.1
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 19 Sep 2024 17:37:02 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Request-ID
+      Openai-Organization:
+      - turing-school-hmcjza
+      Openai-Processing-Ms:
+      - '1117'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains; preload
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '200000'
+      X-Ratelimit-Remaining-Requests:
+      - '9996'
+      X-Ratelimit-Remaining-Tokens:
+      - '199900'
+      X-Ratelimit-Reset-Requests:
+      - 28.278s
+      X-Ratelimit-Reset-Tokens:
+      - 30ms
+      X-Request-Id:
+      - req_01bfb66bac064a7e8ca82bd451db8095
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=LzYX7vgmhRaaStH5JDyzQxUjMwTp81u.2RoDtO97Zi4-1726767422-1.0.1.1-sF24PQ0DSankCrrFmGfPk6j.JPK4UXxBnFIOk30eEExs4oCtjyNeAVRco1_cozzhtl88lr.bzjHEJQo99Q3mwA;
+        path=/; expires=Thu, 19-Sep-24 18:07:02 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=VzEr0DGzlpYH.5R4PzxjmjN01VHuv9jj20raU_L6JbY-1726767422758-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8c5b575ff80c8f78-BOS
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-A9FNNCHY5xhVdSffBeu0IxSdgYBl6",
+          "object": "chat.completion",
+          "created": 1726767421,
+          "model": "gpt-4o-mini-2024-07-18",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "1. The document has been permanently relocated.  \n2. A message indicates that it has moved to a new URL.  \n3. The new link for the document is provided: [here](http://www.example3.com/).",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 110,
+            "completion_tokens": 47,
+            "total_tokens": 157,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "system_fingerprint": "fp_1bb46167f9"
+        }
+  recorded_at: Thu, 19 Sep 2024 17:37:02 GMT
+recorded_with: VCR 6.3.1
