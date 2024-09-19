@@ -34,8 +34,21 @@ class Api::V1::LinksController < ApplicationController
       query = query.joins(:tags).where(tags: { name: tags })
       query = query.group('links.id').having('COUNT(DISTINCT tags.id) = ?', tags.size)
     end
-
+    
     links = query.distinct
+
+    links.each do |link|
+      begin
+        if link.summary == nil || link.summary_timestamp < (Time.current - 259200) #3 days in seconds
+          new_summary = SummaryService.new.summarize(link.original)
+          link.update(summary: new_summary)
+          link.update(summary_timestamp: Time.current)
+        end
+      rescue Faraday::ConnectionFailed => e
+          link.update(summary: "Summary not available")
+          link.update(summary_timestamp: Time.current)
+      end
+    end
 
     render json: LinkSerializer.new(links)
   end

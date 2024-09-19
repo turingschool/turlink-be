@@ -457,24 +457,28 @@ This is the backend API repository for TurLink. TurLink is a link shortener app 
     }
     ```
 ### Get Summary for a Link
-- **GET** `/api/v1/summary?link={original link}`
+- **GET** `/api/v1/summary?link={short link}`
   - Description: Retrieves a summary of the content at the given link.
-  - Example Request: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/summary?link=www.example.com`
+  - Example Request: GET `https://turlink-be-53ba7254a7c1.herokuapp.com/api/v1/summary?link=tur.link/96559226`
   - Successful Response (200 OK):
     ```json
     {
       "data": {
-        "attributes": {
-          "link": "www.example.com",
-          "summary": "1. example 1\n2. example 2\n3. example 3"
-        }
+          "id": "6",
+          "type": "link",
+          "attributes": {
+              "original": "https://mod4.turing.edu/lessons/cs/arrays_stacks_queues.html",
+              "short": "tur.link/96559226",
+              "user_id": 1,
+              "tags": [],
+              "click_count": 0,
+              "last_click": null,
+              "private": false,
+              "summary": "1. The document outlines the curriculum for Module 4 at the Turing School of Software and Design, focusing on data structures such as Arrays, Stacks, and Queues. It includes learning goals and key topics of discussion.\n\n2. It provides detailed explanations of each data structure: Arrays, Stacks (Last-In-First-Out), and Queues (First-In-First-Out), including their background, memory usage, implementation, usage, and their pros and cons.\n\n3. Students are encouraged to practice their knowledge of these data structures through various examples and a workshop challenge, reinforcing their understanding of how these data structures operate within programming languages."
+          }
       }
-    }
+  }
     ```
-  - Notes:
-    - This endpoint currently returns mock data.
-    - In the future, it will provide an actual summary of the content at the given link.
-    - The summary is expected to be a string with numbered points, separated by newline characters.
 
 ### Update Link Privacy
 - **PATCH** `/api/v1/users/:user_id/links/:id/update_privacy`

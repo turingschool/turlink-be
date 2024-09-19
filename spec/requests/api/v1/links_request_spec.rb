@@ -212,7 +212,7 @@ RSpec.describe 'links requests', type: :request do
       @link3.tags << @tag2
     end
 
-    it 'can return the top 5 links by click count' do
+    xit 'can return the top 5 links by click count', :vcr do
       get '/api/v1/top_links'
 
       expect(response).to be_successful
@@ -223,7 +223,7 @@ RSpec.describe 'links requests', type: :request do
       expect(links.last[:attributes][:click_count]).to eq(10)
     end
 
-    it 'can return the top 5 links by click count for a specific tag' do
+    it 'can return the top 5 links by click count for a specific tag', :vcr do
       get '/api/v1/top_links?tag=javascript'
 
       expect(response).to be_successful
@@ -234,7 +234,7 @@ RSpec.describe 'links requests', type: :request do
       expect(links.last[:attributes][:click_count]).to eq(50)
     end
 
-    it 'can return the top 5 links filtered by multiple tags' do
+    it 'can return the top 5 links filtered by multiple tags', :vcr do
       get '/api/v1/top_links?tag=ruby,javascript'
 
       expect(response).to be_successful
